@@ -1,0 +1,50 @@
+  .jhjh
+
+	
+COPY START 0
+ .RSUB
+   .TIO
+ SHIFTL A,12	
+first +STL RETADR,X
+ .jkjk	
+.CLOOP +JSUB RDREC
+.  RESB 10
+  BYTE 	X'1F2030'
+  byte c'EOF'
+EOF      LDA LENGTH
+       COMP #4095
+WRREC       JEQ ENDFIL
+       LDB @LENGTH
+       base 10	
+RETADR     COMPR A,S
+.    RESB   10,ASG
+.CLOOP            RESW   3
+	    WORD   10
+RDREC     STCH BUFFER , X
+CLOOP	TIX LENGTH
+.	+RSUB
+BUFFER     +JSUB WRREC
+LENGTH     J CLOOP
+ENDFIL LDA EOF
+one  +LDA RETADR
+two +JEQ WRREC
+three +STCH EOF
+four  +JSUB first
+	COMP #10
+	COMP #10
+	COMP #10
+	COMP #10
+	COMP #10
+	COMP #10
+	COMP #10
+	COMP #10
+	COMP #10
+	COMP #10
+	COMP #10
+	COMP #10
+	COMP #10
+.	RESB 10
+	COMP #10
+	COMP #10
+.	RESB 10, ASG
+       END  FIRST
